@@ -57,7 +57,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 return PopupMenuItem<Locale>(
                   value: locale,
                   child: Text(
-                    locale.languageCode == 'en' ? 'English' : 'Русский',
+                    locale.languageCode == 'en'
+                        ? AppLocalizations.of(context)!.languageEnglish
+                        : AppLocalizations.of(context)!.languageRussian,
                   ),
                 );
               }).toList();

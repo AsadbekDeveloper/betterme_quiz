@@ -20,20 +20,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) => di.sl<QuizBloc>(),
-        ),
-        BlocProvider(
-          create: (_) => di.sl<LocaleBloc>(),
-        ),
+        BlocProvider(create: (_) => di.sl<QuizBloc>()),
+        BlocProvider(create: (_) => di.sl<LocaleBloc>()),
       ],
       child: BlocBuilder<LocaleBloc, LocaleState>(
         builder: (context, localeState) {
           return MaterialApp(
             title: 'BetterMe Quiz',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
             home: QuizPage(),
             debugShowCheckedModeBanner: false,
             locale: localeState.locale,

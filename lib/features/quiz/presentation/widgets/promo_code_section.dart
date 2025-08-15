@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:betterme_quiz/l10n/app_localizations.dart';
 
 class PromoCodeSection extends StatelessWidget {
   const PromoCodeSection({super.key});
@@ -23,7 +24,7 @@ class PromoCodeSection extends StatelessWidget {
               ), // Teal icon
               const SizedBox(width: 10),
               Text(
-                'Your promo code is applied!',
+                AppLocalizations.of(context)!.promoCodeApplied,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: const Color(0xFF00BCD4), // Teal text
                   fontWeight: FontWeight.bold,
@@ -50,7 +51,7 @@ class PromoCodeSection extends StatelessWidget {
                       const Icon(Icons.check, color: Colors.green),
                       const SizedBox(width: 8),
                       Text(
-                        'willora_aug25',
+                        AppLocalizations.of(context)!.promoCodeValue,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
@@ -77,7 +78,7 @@ class PromoCodeSection extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'minutes seconds',
+                      AppLocalizations.of(context)!.minutesSeconds,
                       style: Theme.of(
                         context,
                       ).textTheme.bodySmall?.copyWith(color: Colors.white),

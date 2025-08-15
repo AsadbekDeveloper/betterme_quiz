@@ -121,6 +121,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Quiz'**
   String get quiz;
+
+  /// No description provided for @quizCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiz Completed!'**
+  String get quizCompleted;
+
+  /// No description provided for @errorPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: '**
+  String get errorPrefix;
+
+  /// No description provided for @welcomeToQuiz.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to the Quiz!'**
+  String get welcomeToQuiz;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @languageRussian.
+  ///
+  /// In en, this message translates to:
+  /// **'Русский'**
+  String get languageRussian;
+
+  /// No description provided for @disclaimerPart1.
+  ///
+  /// In en, this message translates to:
+  /// **'Without cancellation, before the selected discounted intro plan ends, I accept that BetterMe will automatically charge '**
+  String get disclaimerPart1;
+
+  /// No description provided for @disclaimerPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'{price}'**
+  String disclaimerPrice(Object price);
+
+  /// No description provided for @disclaimerPart2.
+  ///
+  /// In en, this message translates to:
+  /// **' every '**
+  String get disclaimerPart2;
+
+  /// No description provided for @disclaimerDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'{duration}'**
+  String disclaimerDuration(Object duration);
+
+  /// No description provided for @disclaimerPart3.
+  ///
+  /// In en, this message translates to:
+  /// **' until I cancel. Cancel online via the account page on the '**
+  String get disclaimerPart3;
+
+  /// No description provided for @disclaimerWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'website'**
+  String get disclaimerWebsite;
+
+  /// No description provided for @disclaimerPart4.
+  ///
+  /// In en, this message translates to:
+  /// **' or app.'**
+  String get disclaimerPart4;
+
+  /// No description provided for @mostPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'MOST POPULAR'**
+  String get mostPopular;
+
+  /// No description provided for @perDay.
+  ///
+  /// In en, this message translates to:
+  /// **'per day'**
+  String get perDay;
+
+  /// No description provided for @promoCodeApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Your promo code is applied!'**
+  String get promoCodeApplied;
+
+  /// No description provided for @promoCodeValue.
+  ///
+  /// In en, this message translates to:
+  /// **'willora_aug25'**
+  String get promoCodeValue;
+
+  /// No description provided for @minutesSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'minutes seconds'**
+  String get minutesSeconds;
+
+  /// No description provided for @chooseYourPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Your Plan'**
+  String get chooseYourPlan;
+
+  /// No description provided for @plan1WeekTrial.
+  ///
+  /// In en, this message translates to:
+  /// **'1-Week Trial'**
+  String get plan1WeekTrial;
+
+  /// No description provided for @plan4WeekPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'4-Week Plan'**
+  String get plan4WeekPlan;
+
+  /// No description provided for @plan12WeekPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'12-Week Plan'**
+  String get plan12WeekPlan;
+
+  /// No description provided for @getMyApp.
+  ///
+  /// In en, this message translates to:
+  /// **'GET MY PLAN'**
+  String get getMyApp;
 }
 
 class _AppLocalizationsDelegate

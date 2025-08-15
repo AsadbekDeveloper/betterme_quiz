@@ -98,14 +98,15 @@ class _QuizPageState extends State<QuizPage> {
               if (mounted && context.mounted) {
                 // Check if the widget is still mounted
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Quiz Completed!')),
+                  SnackBar(
+                    content: Text(AppLocalizations.of(context)!.quizCompleted),
+                  ),
                 );
                 // Optionally navigate to a results page or home
               }
             }
           },
           builder: (context, state) {
-
             if (state is QuizLoading) {
               return const Center(child: CircularProgressIndicator());
             } else if (state is QuizLoaded) {
@@ -248,11 +249,17 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               );
             } else if (state is QuizError) {
-              return Center(child: Text('Error: ${state.message}'));
+              return Center(
+                child: Text(
+                  '${AppLocalizations.of(context)!.errorPrefix}${state.message}',
+                ),
+              );
             } else if (state is QuizSubmissionSuccess) {
               return QuizSuccessContainer();
             }
-            return const Center(child: Text('Welcome to the Quiz!'));
+            return Center(
+              child: Text(AppLocalizations.of(context)!.welcomeToQuiz),
+            );
           },
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:betterme_quiz/features/quiz/presentation/widgets/promo_code_section.dart';
 import 'package:betterme_quiz/features/quiz/presentation/widgets/plan_card.dart';
 import 'package:betterme_quiz/features/quiz/presentation/widgets/disclaimer_text.dart';
+import 'package:betterme_quiz/l10n/app_localizations.dart';
 
 class QuizSuccessContainer extends StatefulWidget {
   const QuizSuccessContainer({super.key});
@@ -16,24 +17,24 @@ class _QuizSuccessContainerState extends State<QuizSuccessContainer> {
   List<Widget> _buildPlanCards(BuildContext context, bool isRow) {
     final List<Map<String, dynamic>> plans = [
       {
-        'title': '1-Week Trial',
-        'planDuration': '4-WEEK PLAN',
+        'title': AppLocalizations.of(context)!.plan1WeekTrial,
+        'planDuration': AppLocalizations.of(context)!.plan4WeekPlan,
         'originalPrice': '79.99',
         'discountedPrice': '39.99',
         'pricePerDay': '5.71',
         'isPopular': false,
       },
       {
-        'title': '4-Week Plan',
-        'planDuration': '4-WEEK PLAN',
+        'title': AppLocalizations.of(context)!.plan4WeekPlan,
+        'planDuration': AppLocalizations.of(context)!.plan4WeekPlan,
         'originalPrice': '179.99',
         'discountedPrice': '89.99',
         'pricePerDay': '3.21',
         'isPopular': true,
       },
       {
-        'title': '12-Week Plan',
-        'planDuration': '4-WEEK PLAN',
+        'title': AppLocalizations.of(context)!.plan12WeekPlan,
+        'planDuration': AppLocalizations.of(context)!.plan4WeekPlan,
         'originalPrice': '399.99',
         'discountedPrice': '199.99',
         'pricePerDay': '2.38',
@@ -85,7 +86,7 @@ class _QuizSuccessContainerState extends State<QuizSuccessContainer> {
           children: [
             const SizedBox(height: 40),
             Text(
-              'Choose Your Plan',
+              AppLocalizations.of(context)!.chooseYourPlan,
               style: Theme.of(
                 context,
               ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
@@ -122,9 +123,9 @@ class _QuizSuccessContainerState extends State<QuizSuccessContainer> {
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
-              child: const Text(
-                'GET MY PLAN',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+              child: Text(
+                AppLocalizations.of(context)!.getMyApp,
+                style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),
             const SizedBox(height: 30),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:betterme_quiz/l10n/app_localizations.dart';
 
 class DisclaimerText extends StatelessWidget {
   const DisclaimerText({super.key});
@@ -9,33 +10,33 @@ class DisclaimerText extends StatelessWidget {
       textAlign: TextAlign.center,
       text: TextSpan(
         style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
-        children: const [
+        children: [
           TextSpan(
-            text: 'Without cancellation, before the selected discounted intro plan ends, I accept that BetterMe will automatically charge ',
+            text: AppLocalizations.of(context)!.disclaimerPart1,
           ),
           TextSpan(
-            text: '179.99',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            text: AppLocalizations.of(context)!.disclaimerPrice('179.99'),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           TextSpan(
-            text: ' every ',
+            text: AppLocalizations.of(context)!.disclaimerPart2,
           ),
           TextSpan(
-            text: '4 weeks',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            text: AppLocalizations.of(context)!.disclaimerDuration('4 weeks'),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           TextSpan(
-            text: ' until I cancel. Cancel online via the account page on the ',
+            text: AppLocalizations.of(context)!.disclaimerPart3,
           ),
           TextSpan(
-            text: 'website',
-            style: TextStyle(
+            text: AppLocalizations.of(context)!.disclaimerWebsite,
+            style: const TextStyle(
               color: Colors.blue,
               decoration: TextDecoration.underline,
             ),
           ),
           TextSpan(
-            text: ' or app.',
+            text: AppLocalizations.of(context)!.disclaimerPart4,
           ),
         ],
       ),

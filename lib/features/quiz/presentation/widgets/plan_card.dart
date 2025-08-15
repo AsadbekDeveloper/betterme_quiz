@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:betterme_quiz/l10n/app_localizations.dart';
 
 class PlanCard extends StatelessWidget {
   final String title;
@@ -48,7 +49,7 @@ class PlanCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 width: double.infinity, // Ensure it takes full width
                 child: Text(
-                  'MOST POPULAR',
+                  AppLocalizations.of(context)!.mostPopular,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: Colors.white,
@@ -108,7 +109,7 @@ class PlanCard extends StatelessWidget {
                         ),
                   ),
                   Text(
-                    'per day',
+                    AppLocalizations.of(context)!.perDay,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Colors.grey,
                         ),
