@@ -8,8 +8,6 @@ class QuizModel extends QuizEntity {
     return QuizModel(
       questions: jsonList
           .map((q) => Question.fromJson(q as Map<String, dynamic>))
-          .toList()
-          .take(10)
           .toList(),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:betterme_quiz/features/quiz/presentation/widgets/quiz_success_container.dart';
 import 'package:betterme_quiz/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,9 @@ class _QuizPageState extends State<QuizPage> {
     return BlocListener<LocaleBloc, LocaleState>(
       listener: (context, localeState) {
         // Reload quiz when locale changes
-        context.read<QuizBloc>().add(LoadQuizEvent(locale: localeState.locale.languageCode));
+        context.read<QuizBloc>().add(
+          LoadQuizEvent(locale: localeState.locale.languageCode),
+        );
       },
       child: Scaffold(
         appBar: PreferredSize(
@@ -94,20 +97,22 @@ class _QuizPageState extends State<QuizPage> {
             } else if (state is QuizSubmissionSuccess) {
               if (mounted && context.mounted) {
                 // Check if the widget is still mounted
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(const SnackBar(content: Text('Quiz Completed!')));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Quiz Completed!')),
+                );
                 // Optionally navigate to a results page or home
               }
             }
           },
           builder: (context, state) {
+
             if (state is QuizLoading) {
               return const Center(child: CircularProgressIndicator());
             } else if (state is QuizLoaded) {
               final currentQuestion =
                   state.quiz.questions[state.currentQuestionIndex];
-              final selectedOptions = state.userAnswers[currentQuestion.id] ?? [];
+              final selectedOptions =
+                  state.userAnswers[currentQuestion.id] ?? [];
 
               return Align(
                 alignment: Alignment.topCenter,
@@ -245,7 +250,7 @@ class _QuizPageState extends State<QuizPage> {
             } else if (state is QuizError) {
               return Center(child: Text('Error: ${state.message}'));
             } else if (state is QuizSubmissionSuccess) {
-              return const Center(child: Text('Quiz Completed Successfully!'));
+              return QuizSuccessContainer();
             }
             return const Center(child: Text('Welcome to the Quiz!'));
           },
