@@ -1,16 +1,29 @@
-# betterme_quiz
+# Quiz Screen – Localization Test
 
-A new Flutter project.
+A Flutter quiz screen app with **Russian** 🇷🇺 and **English** 🇺🇸 localization. Loads quiz data dynamically from JSON files: `quiz_en.json` and `quiz_ru.json`.
 
-## Getting Started
+## 📸 Screenshots
+| Web 1 | Web 2 | Mobile |
+|-------|-------|--------|
+| ![](screenshots/web1.png) | ![](screenshots/web2.png) | ![](screenshots/phone.png) |
 
-This project is a starting point for a Flutter application.
+## ✨ Features
+- Dynamic quiz loading from JSON based on locale
+- Two languages: Russian & English
+- Responsive for Web and Mobile
 
-A few resources to get you started if this is your first Flutter project:
+## 📂 Structure
+assets/  
+ ├── quiz_en.json  
+ └── quiz_ru.json  
+screenshots/  
+ ├── web1.png  
+ ├── web2.png  
+ └── phone.png  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Run
+flutter pub get  
+flutter run  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🌐 Localization
+The app detects the current locale and loads the corresponding quiz JSON file.
