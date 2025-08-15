@@ -19,11 +19,24 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
   }
 
   Future<void> _onLoadQuiz(LoadQuizEvent event, Emitter<QuizState> emit) async {
+    final currentState = state;
     emit(QuizLoading());
-    final failureOrQuiz = await loadQuiz();
+    final failureOrQuiz = await loadQuiz(event.locale);
     failureOrQuiz.fold(
       (failure) => emit(QuizError(message: _mapFailureToMessage(failure))),
-      (quiz) => emit(QuizLoaded(quiz: quiz)),
+      (quiz) {
+        if (currentState is QuizLoaded) {
+          emit(
+            QuizLoaded(
+              quiz: quiz,
+              currentQuestionIndex: currentState.currentQuestionIndex,
+              userAnswers: currentState.userAnswers,
+            ),
+          );
+        } else {
+          emit(QuizLoaded(quiz: quiz));
+        }
+      },
     );
   }
 

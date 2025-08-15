@@ -7,7 +7,14 @@ abstract class QuizEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadQuizEvent extends QuizEvent {}
+class LoadQuizEvent extends QuizEvent {
+  final String locale;
+
+  const LoadQuizEvent({required this.locale});
+
+  @override
+  List<Object> get props => [locale];
+}
 
 class AnswerQuestionEvent extends QuizEvent {
   final String questionId;

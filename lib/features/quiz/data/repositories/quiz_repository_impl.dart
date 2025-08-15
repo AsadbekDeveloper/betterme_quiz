@@ -12,9 +12,9 @@ class QuizRepositoryImpl implements QuizRepository {
   QuizRepositoryImpl({required this.localDataSource});
 
   @override
-  Future<Either<Failure, QuizEntity>> getQuiz() async {
+  Future<Either<Failure, QuizEntity>> getQuiz(String locale) async {
     try {
-      final QuizModel quizModel = await localDataSource.loadQuiz();
+      final QuizModel quizModel = await localDataSource.loadQuiz(locale);
       return Right(quizModel);
     } on CacheException {
       return Left(CacheFailure());

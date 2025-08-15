@@ -8,7 +8,7 @@ class LoadQuiz {
 
   LoadQuiz(this.repository);
 
-  Future<Either<Failure, QuizEntity>> call() async {
-    return await repository.getQuiz();
+  Future<Either<Failure, QuizEntity>> call(String locale) async {
+    return await repository.getQuiz(locale);
   }
 }
