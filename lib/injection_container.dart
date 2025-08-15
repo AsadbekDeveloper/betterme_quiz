@@ -5,6 +5,7 @@ import 'package:betterme_quiz/features/quiz/domain/repositories/quiz_repository.
 import 'package:betterme_quiz/features/quiz/domain/usecases/load_quiz.dart';
 import 'package:betterme_quiz/features/quiz/domain/usecases/submit_answer.dart';
 import 'package:betterme_quiz/features/quiz/presentation/bloc/quiz_bloc.dart';
+import 'package:betterme_quiz/core/locale/locale_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -15,6 +16,9 @@ void init() {
       loadQuiz: sl(),
       submitAnswer: sl(),
     ),
+  );
+  sl.registerFactory(
+    () => LocaleBloc(),
   );
 
   // Use cases

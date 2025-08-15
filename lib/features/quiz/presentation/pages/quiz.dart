@@ -1,3 +1,4 @@
+import 'package:betterme_quiz/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:betterme_quiz/features/quiz/presentation/bloc/quiz_bloc.dart';
@@ -43,7 +44,10 @@ class _QuizPageState extends State<QuizPage> {
               title: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text('Quiz', style: TextStyle(color: Colors.black)),
+                  Text(
+                    AppLocalizations.of(context)!.quiz,
+                    style: TextStyle(color: Colors.black),
+                  ),
                   if (currentStep + 1 < totalSteps)
                     const SizedBox(
                       height: 4.0,
@@ -211,7 +215,7 @@ class _QuizPageState extends State<QuizPage> {
                                     }
                                   : null,
                               child: Text(
-                                'Next',
+                                AppLocalizations.of(context)!.next,
                                 style: TextStyle(
                                   color: selectedOptions.isNotEmpty
                                       ? Colors.white

@@ -1,11 +1,14 @@
+import 'package:betterme_quiz/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:betterme_quiz/core/locale/locale_bloc.dart';
+import 'package:betterme_quiz/core/locale/locale_event.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Widget title; // Changed from String to Widget
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  final Widget title;
   final bool showBackButton;
   final bool showMenuButton;
   final VoidCallback? onBack;
-  // Removed final PreferredSizeWidget? bottom;
 
   const CustomAppBar({
     super.key,
@@ -13,40 +16,54 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showBackButton = true,
     this.showMenuButton = true,
     this.onBack,
-    // Removed this.bottom,
   });
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20.0); // Adjusted height for title + progress bar
+  State<CustomAppBar> createState() => _CustomAppBarState();
 
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20.0);
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
       elevation: 0,
-      leading: showBackButton
+      leading: widget.showBackButton
           ? IconButton(
               icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
               onPressed:
-                  onBack ??
+                  widget.onBack ??
                   () {
                     Navigator.of(context).pop();
                   },
             )
           : null,
-      title: title, // Now accepts a Widget
+      title: widget.title,
       centerTitle: true,
       actions: [
-        if (showMenuButton)
-          IconButton(
+        if (widget.showMenuButton)
+          PopupMenuButton<Locale>(
             icon: const Icon(Icons.menu, color: Colors.black),
-            onPressed: () {
-              // Handle menu button press
+            onSelected: (Locale locale) {
+              context.read<LocaleBloc>().add(LocaleChanged(locale));
+            },
+            color: Colors.white,
+            itemBuilder: (BuildContext context) {
+              return AppLocalizations.supportedLocales.map((Locale locale) {
+                return PopupMenuItem<Locale>(
+                  value: locale,
+                  child: Text(
+                    locale.languageCode == 'en' ? 'English' : 'Русский',
+                  ),
+                );
+              }).toList();
             },
           ),
       ],
-      // Removed bottom: bottom,
     );
   }
 }
